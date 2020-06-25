@@ -1,5 +1,5 @@
 # SimpleCalculator
-A application 'calculator' which is designed by BLOC pattern
+A application 'calculator' designed in BLOC pattern
 
 use:
 
