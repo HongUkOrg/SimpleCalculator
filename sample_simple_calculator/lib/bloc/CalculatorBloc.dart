@@ -38,11 +38,6 @@ class CalculatorBloc extends Bloc<CalculatorEvent, String> {
     ButtonType currentValueType = checkType(value);
     _lastValue = value;
 
-    // operator can not be consecutive
-    if(lastValueType.isOperator && currentValueType.isOperator) {
-      return state;
-    }
-
     switch(currentValueType) {
       case ButtonType.reset:
         _lastValue = '';
@@ -52,6 +47,11 @@ class CalculatorBloc extends Bloc<CalculatorEvent, String> {
         return eval.toInt().toString();
       default:
         break;
+    }
+
+    // operator can not be consecutive
+    if(lastValueType.isOperator && currentValueType.isOperator) {
+      return state;
     }
 
     // remove initial value in calculator
